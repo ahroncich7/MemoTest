@@ -7,9 +7,10 @@ iniciarJuego();
 
 function manejarRonda(e) {
     tarjeta = e.target
-    mostrar(tarjeta)
-    tarjetasEnJuego.push(tarjeta)
-    revisarConcidencias(tarjetasEnJuego)
+    mostrar(tarjeta);
+    tarjetasEnJuego.push(tarjeta);
+    revisarConcidencias(tarjetasEnJuego);
+    evaluarSiGano();
 };
 
 function revisarConcidencias($tarjetasEnJuego) {
@@ -91,5 +92,11 @@ function bloquearInput() {
         imageElement.onclick = function() {}
     });
 }
+
+function evaluarSiGano() {
+    if (document.querySelectorAll(".tarjetas img[id = exito]").length === 16) {
+        document.getElementById("ganador").className = ""
+        document.getElementById("tablero").className = "oculto"
+    }
 
 }
