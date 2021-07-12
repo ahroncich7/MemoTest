@@ -1,17 +1,17 @@
 let cards = document.querySelectorAll("img")
 let cardsEnJuego = []
-let hayMatch
+
 cards.forEach(function(imageElement) {
     imageElement.onclick = function(e) {
-        card = e.target.src
-        console.log(card)
+        card = e.target
         cardsEnJuego.push(card)
         if (cardsEnJuego.length >= 2) {
-            if (cardsEnJuego[0] === cardsEnJuego[1]) {
-                hayMatch = "si"
+            if (cardsEnJuego[0].src === cardsEnJuego[1].src) {
+                cardsEnJuego[0].src = "images/cards/none.jpg"
+                cardsEnJuego[1].src = "images/cards/none.jpg"
             }
             cardsEnJuego = []
-            return hayMatch
+            return false
         }
     }
-})
+});
