@@ -5,6 +5,31 @@ let colores = ["negro", "azul", "amarillo", "rojo", "verde", "violeta", "naranja
 iniciarJuego();
 
 
+function manejarRonda(e) {
+    tarjeta = e.target
+    mostrar(tarjeta)
+    tarjetasEnJuego.push(tarjeta)
+    revisarConcidencias(tarjetasEnJuego)
+};
+
+function revisarConcidencias(tarjetasEnJuego) {
+    if (tarjetasEnJuego.length >= 2) {
+        if (tarjetasEnJuego[0].src === tarjetasEnJuego[1].src) {
+            tarjetasEnJuego[0].src = "images/cards/exito.jpg"
+            tarjetasEnJuego[1].src = "images/cards/exito.jpg"
+
+        }
+        bloquearInput();
+
+        setTimeout(function() {
+            ocultar(tarjetasEnJuego[0]);
+            ocultar(tarjetasEnJuego[1]);
+            tarjetasEnJuego = [];
+            desbloquearInput();
+        }, 2000)
+    };
+}
+
 function obtenerLista() {
     let numeroUnico
     while (listaFinal.length < 16) {
