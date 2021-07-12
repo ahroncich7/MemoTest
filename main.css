@@ -9,3 +9,7 @@
 .tarjetas img {
     opacity: 0;
 }
+
+.tarjetas img[id="exito"] {
+    opacity: 1;
+}
