@@ -1,3 +1,11 @@
 .col {
     padding-top: 12px;
 }
+
+.tarjetas {
+    background-image: url("images/cards/boca-abajo.jpg")
+}
+
+.tarjetas img {
+    opacity: 0;
+}
