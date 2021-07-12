@@ -38,10 +38,23 @@ function iniciarJuego() {
     obtenerLista();
     asignarTarjetas();
 }
+
 function ocultar(elemento) {
     elemento.style.opacity = "0"
 }
 
 function mostrar(elemento) {
     elemento.style.opacity = "1"
+}
+
+function desbloquearInput() {
+    $tarjetas.forEach(function(imageElement) {
+        imageElement.onclick = manejarRonda
+    })
+};
+
+function bloquearInput() {
+    $tarjetas.forEach(function(imageElement) {
+        imageElement.onclick = manejarRonda
+    });
 }
