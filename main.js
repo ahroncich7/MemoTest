@@ -62,12 +62,14 @@ function asignarTarjetas() {
 }
 
 function iniciarJuego() {
+    desbloquearInput();
     obtenerLista();
     asignarTarjetas();
 }
 
 function ocultar(elemento) {
-    elemento.style.opacity = "0"
+    if (elemento.id !== "exito")
+        elemento.style.opacity = "0"
 }
 
 function mostrar(elemento) {
@@ -76,12 +78,18 @@ function mostrar(elemento) {
 
 function desbloquearInput() {
     $tarjetas.forEach(function(imageElement) {
-        imageElement.onclick = manejarRonda
+        if (imageElement.querySelector("img").id !== "exito") {
+            imageElement.onclick = manejarRonda
+        } else {
+            imageElement.onclick = function() {}
+        }
     })
-};
+}
 
 function bloquearInput() {
     $tarjetas.forEach(function(imageElement) {
-        imageElement.onclick = manejarRonda
+        imageElement.onclick = function() {}
     });
+}
+
 }
