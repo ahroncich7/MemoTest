@@ -13,3 +13,7 @@
 .tarjetas img[id="exito"] {
     opacity: 1;
 }
+
+.oculto {
+    display: none;
+}
