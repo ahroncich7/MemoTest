@@ -26,7 +26,9 @@ function revisarConcidencias($tarjetasEnJuego) {
             ocultar(tarjetasEnJuego[0]);
             ocultar(tarjetasEnJuego[1]);
             desbloquearInput();
-        }, 2000)
+            tarjetasEnJuego = []
+        }, 1000)
+
     };
 }
 
