@@ -2,6 +2,7 @@ let listaFinal = [];
 let tarjetas = document.querySelectorAll(".tarjetas")
 let tarjetasEnJuego = []
 let colores = ["negro", "azul", "amarillo", "rojo", "verde", "violeta", "naranja", "gris", "negro", "azul", "amarillo", "rojo", "verde", "violeta", "naranja", "gris"];
+iniciarJuego();
 function obtenerLista() {
     let numeroUnico
     while (listaFinal.length < 16) {
@@ -31,3 +32,7 @@ function asignarTarjetas() {
     });
 }
 
+function iniciarJuego() {
+    obtenerLista();
+    asignarTarjetas();
+}
