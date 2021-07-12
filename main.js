@@ -36,3 +36,10 @@ function iniciarJuego() {
     obtenerLista();
     asignarTarjetas();
 }
+function ocultar(elemento) {
+    elemento.style.opacity = "0"
+}
+
+function mostrar(elemento) {
+    elemento.style.opacity = "1"
+}
