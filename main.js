@@ -6,8 +6,8 @@ iniciarJuego();
 
 
 function manejarRonda(e) {
-    tarjeta = e.target
-    mostrar(tarjeta);
+    tarjeta = e.currentTarget
+    mostrar(tarjeta.querySelector("img"));
     tarjetasEnJuego.push(tarjeta);
     revisarConcidencias(tarjetasEnJuego);
     evaluarSiGano();
@@ -15,11 +15,12 @@ function manejarRonda(e) {
 
 function revisarConcidencias($tarjetasEnJuego) {
     if ($tarjetasEnJuego.length >= 2) {
-        if ($tarjetasEnJuego[0].src === $tarjetasEnJuego[1].src) {
-            $tarjetasEnJuego[0].src = "images/cards/exito.jpg"
-            $tarjetasEnJuego[0].id = "exito"
-            $tarjetasEnJuego[1].src = "images/cards/exito.jpg"
-            $tarjetasEnJuego[1].id = "exito"
+        if ($tarjetasEnJuego[0].querySelector("img").src === $tarjetasEnJuego[1].querySelector("img").src) {
+            $tarjetasEnJuego[0].className = "exito"
+            $tarjetasEnJuego[0].querySelector("img").src = "images/cards/exito.jpg"
+            $tarjetasEnJuego[1].className = "exito"
+            $tarjetasEnJuego[1].querySelector("img").src = "images/cards/exito.jpg"
+
         }
         bloquearInput();
 
@@ -69,8 +70,8 @@ function iniciarJuego() {
 }
 
 function ocultar(elemento) {
-    if (elemento.id !== "exito")
-        elemento.style.opacity = "0"
+    if (elemento.className !== "exito")
+        elemento.querySelector("img").style.opacity = "0"
 }
 
 function mostrar(elemento) {
