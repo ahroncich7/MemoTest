@@ -1,5 +1,5 @@
 let listaFinal = [];
-let $tarjetas = document.querySelectorAll(".tarjetas")
+let tarjetas = document.querySelectorAll(".tarjetas")
 let tarjetasEnJuego = []
 let colores = ["negro", "azul", "amarillo", "rojo", "verde", "violeta", "naranja", "gris", "negro", "azul", "amarillo", "rojo", "verde", "violeta", "naranja", "gris"];
 iniciarJuego();
@@ -7,7 +7,9 @@ iniciarJuego();
 
 function manejarRonda(e) {
     tarjeta = e.currentTarget
-    mostrar(tarjeta.querySelector("img"));
+    const arrayTarjeta = [tarjeta]
+    mostrar(tarjeta);
+    bloquearInput(arrayTarjeta)
     tarjetasEnJuego.push(tarjeta);
     revisarConcidencias(tarjetasEnJuego);
     evaluarSiGano();
@@ -22,7 +24,7 @@ function revisarConcidencias($tarjetasEnJuego) {
             $tarjetasEnJuego[1].querySelector("img").src = "images/cards/exito.jpg"
 
         }
-        bloquearInput();
+        bloquearInput(tarjetas);
 
         setTimeout(function() {
             ocultar(tarjetasEnJuego[0]);
@@ -58,7 +60,8 @@ function comprobarSiEsUnico(n) {
 function asignarTarjetas() {
     let j = 0
     listaFinal.forEach(function(n) {
-        $tarjetas[n].querySelector("img").src = `images/cards/${colores[j]}.jpg`
+        tarjetas[n].querySelector("img").src = "images/cards/boca-abajo.jpg"
+        tarjetas[n].className = colores[j]
         j++
     });
 }
@@ -71,16 +74,17 @@ function iniciarJuego() {
 
 function ocultar(elemento) {
     if (elemento.className !== "exito")
-        elemento.querySelector("img").style.opacity = "0"
+        elemento.querySelector("img").src = "images/cards/boca-abajo.jpg"
 }
 
 function mostrar(elemento) {
-    elemento.style.opacity = "1"
+    const color = elemento.className
+    elemento.querySelector("img").src = `images/cards/${color}.jpg`
 }
 
 function desbloquearInput() {
-    $tarjetas.forEach(function(imageElement) {
-        if (imageElement.className === "tarjetas") {
+    tarjetas.forEach(function(imageElement) {
+        if (imageElement.className !== "exito") {
             imageElement.onclick = manejarRonda
         } else {
             imageElement.onclick = function() {}
@@ -88,7 +92,7 @@ function desbloquearInput() {
     })
 }
 
-function bloquearInput() {
+function bloquearInput($tarjetas) {
     $tarjetas.forEach(function(imageElement) {
         imageElement.onclick = function() {}
     });
