@@ -80,7 +80,7 @@ function mostrar(elemento) {
 
 function desbloquearInput() {
     $tarjetas.forEach(function(imageElement) {
-        if (imageElement.querySelector("img").id !== "exito") {
+        if (imageElement.className === "tarjetas") {
             imageElement.onclick = manejarRonda
         } else {
             imageElement.onclick = function() {}
@@ -95,7 +95,7 @@ function bloquearInput() {
 }
 
 function evaluarSiGano() {
-    if (document.querySelectorAll(".tarjetas img[id = exito]").length === 16) {
+    if (document.querySelectorAll(".exito").length === 16) {
         document.getElementById("ganador").className = ""
         document.getElementById("tablero").className = "oculto"
     }
