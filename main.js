@@ -70,6 +70,7 @@ function asignarTarjetas() {
 }
 
 function iniciarJuego() {
+    document.getElementById("boton-iniciar").setAttribute("disabled", "")
     desbloquearInput();
     obtenerLista();
     asignarTarjetas();
@@ -120,4 +121,13 @@ function evaluarSiGano() {
         document.getElementById("tablero").className = "oculto"
     }
 
+}
+
+function reset() {
+    document.getElementById("timer").textContent = "-"
+    document.querySelector("#contador").textContent = "-"
+    pararTimer()
+    intentos = 0
+    listaFinal = [];
+    iniciarJuego()
 }
