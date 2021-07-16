@@ -2,7 +2,8 @@ let listaFinal = [];
 let tarjetas = document.querySelectorAll(".tarjetas")
 let tarjetasEnJuego = []
 let colores = ["negro", "azul", "amarillo", "rojo", "verde", "violeta", "naranja", "gris", "negro", "azul", "amarillo", "rojo", "verde", "violeta", "naranja", "gris"];
-iniciarJuego();
+let intentos = 0
+
 
 
 function manejarRonda(e) {
@@ -32,6 +33,8 @@ function revisarConcidencias($tarjetasEnJuego) {
             desbloquearInput();
             tarjetasEnJuego = []
         }, 1000)
+        intentos++
+        document.querySelector("#contador").textContent = intentos
 
     };
 }
