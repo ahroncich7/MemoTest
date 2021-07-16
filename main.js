@@ -70,6 +70,19 @@ function iniciarJuego() {
     desbloquearInput();
     obtenerLista();
     asignarTarjetas();
+    iniciarTimer()
+}
+
+function iniciarTimer() {
+    let n = 0;
+    t = setInterval(function() {
+        document.getElementById("timer").textContent = n
+        n++;
+    }, 1000);
+}
+
+function pararTimer() {
+    clearInterval(t)
 }
 
 function ocultar(elemento) {
