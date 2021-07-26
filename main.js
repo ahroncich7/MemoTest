@@ -79,9 +79,16 @@ function iniciarJuego() {
 
 function iniciarTimer() {
     let n = 0;
+    let horas = 0;
+    let minutos = 0;
+    let segundos = 0;
     t = setInterval(function() {
-        document.getElementById("timer").textContent = n
-        n++;
+
+        document.getElementById("timer").textContent = `${horas} h : ${minutos} m : ${segundos} s`
+        n++
+        horas = Math.floor(n / 3600)
+        minutos = Math.floor((n % 3600) / 60)
+        segundos = ((n % 3600) % 60)
     }, 1000);
 }
 
@@ -118,7 +125,9 @@ function bloquearInput($tarjetas) {
 function evaluarSiGano() {
     if (document.querySelectorAll(".exito").length === 16) {
         document.getElementById("ganador").className = ""
-        document.getElementById("tablero").className = "oculto"
+        document.getElementById("juego").className = "oculto"
+        pararTimer()
+        document.getElementById("texto-ganador").textContent = `GANASTE !!! en ${intentos} intentos`
     }
 
 }

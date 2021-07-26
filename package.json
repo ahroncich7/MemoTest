@@ -1,27 +1,15 @@
 {
-    "name": "memotest",
-    "version": "1.0.0",
-    "description": "Este es un juego de memoria",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "cypress_run": "cypress open"
-    },
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "bootstrap": "^5.0.2",
-        "http-server": "^0.12.3"
-    },
-    "devDependencies": {
-        "cypress": "^8.0.0"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/ahroncich7/MemoTest.git"
-    },
-    "bugs": {
-        "url": "https://github.com/ahroncich7/MemoTest/issues"
-    },
-    "homepage": "https://github.com/ahroncich7/MemoTest#readme"
+  "name": "memotest",
+  "version": "1.0.0",
+  "description": "Este es un juego de memoria",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.0.2"
+  },
+  "devDependencies": {}
 }
