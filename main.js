@@ -3,6 +3,8 @@ let tarjetas = document.querySelectorAll(".tarjetas")
 let tarjetasEnJuego = []
 let colores = ["negro", "azul", "amarillo", "rojo", "verde", "violeta", "naranja", "gris", "negro", "azul", "amarillo", "rojo", "verde", "violeta", "naranja", "gris"];
 let intentos = 0
+let bienvenida = document.querySelector("#bienvenida")
+let tablero = document.querySelector("#div-tablero")
 
 
 
@@ -75,6 +77,9 @@ function iniciarJuego() {
     obtenerLista();
     asignarTarjetas();
     iniciarTimer()
+    bienvenida.classList.add("oculto")
+    tablero.classList.remove("oculto")
+
 }
 
 function iniciarTimer() {
